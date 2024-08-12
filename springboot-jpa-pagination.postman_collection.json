@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "5e7ae731-f2cd-4812-ac73-04597d13e4e3",
+		"name": "springboot-jpa-pagination",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5756852",
+		"_collection_link": "https://orange-moon-819999.postman.co/workspace/Spring-Boot~2f88cd47-cc09-4c66-a176-730beec15c17/collection/5756852-5e7ae731-f2cd-4812-ac73-04597d13e4e3?action=share&source=collection_link&creator=5756852"
+	},
+	"item": [
+		{
+			"name": "save Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Name 1\",\r\n    \"email\" : \"name1@teste.com\",\r\n    \"document_id\" : \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list Customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/customer?name=name&size=3&page=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"customer"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "name"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
