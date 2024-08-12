@@ -12,12 +12,13 @@ Technologies:
 	POST /customer
 
 Request example:
+'''js 
 {
     "name" : "Name 1",
     "email" : "name1@teste.com",
     "document_id" : "1"
 }
-
+'''
 2 - Find Customer: Find customer information using different fields and pagination
 	GET /customer
 	GET /customer?name=name&size=3&page=0
