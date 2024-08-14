@@ -14,7 +14,6 @@ public interface CustomerService {
 
 	Page<Customer> listCustomer(CustomerFilter customerFiltro, Pageable pageable);
 
-	Optional<Customer> findById(Long id);
+//	Optional<Customer> findById(String id);
 
-	void removerPorId(Long id);
 }

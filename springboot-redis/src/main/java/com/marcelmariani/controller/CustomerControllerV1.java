@@ -21,8 +21,8 @@ import com.marcelmariani.entity.Customer;
 import com.marcelmariani.service.impl.CustomerServiceImpl;
 
 @RestController
-@RequestMapping("/customer")
-public class CustomerController {
+@RequestMapping("/v1/customer")
+public class CustomerControllerV1 {
 
 	@Autowired
 	private CustomerServiceImpl customerService;
@@ -38,38 +38,16 @@ public class CustomerController {
 
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	public Page<Customer> listaCustomer(CustomerFilter customerFilter, Pageable pageable) {
+	public Page<Customer> listCustomer(CustomerFilter customerFilter, Pageable pageable) {
 		return customerService.listCustomer(customerFilter, pageable);
 	}
 
-	@GetMapping("/{id}")
-	@ResponseStatus(HttpStatus.OK)
-	public Customer buscarCustomerPorId(@PathVariable("id") Long id) {
-		return customerService.findById(id)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus
-						.NOT_FOUND, "Customer not found."));
-	}
-
-	@DeleteMapping("/{id}")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void removerCustomer(@PathVariable("id") Long id) {
-		customerService.findById(id).map(customer -> {
-			customerService.removerPorId(customer.getId());
-			return Void.TYPE;
-		}).orElseThrow(() -> new ResponseStatusException(HttpStatus
-				.NOT_FOUND, "Customer not found."));
-	}
-
-	@PutMapping("/{id}")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void atualizarCustomer(@PathVariable("id") Long id, 
-			@RequestBody Customer customer) {
-		customerService.findById(id).map(customerBase -> {
-			modelMapper.map(customer, customerBase);
-			customerService.save(customerBase);
-			return Void.TYPE;
-		}).orElseThrow(() -> new ResponseStatusException(HttpStatus
-				.NOT_FOUND, "Customer not found."));
-	}
+//	@GetMapping("/{id}")
+//	@ResponseStatus(HttpStatus.OK)
+//	public Customer buscarCustomerPorId(@PathVariable("id") String id) {
+//		return customerService.findById(id)
+//				.orElseThrow(() -> new ResponseStatusException(HttpStatus
+//						.NOT_FOUND, "Customer not found."));
+//	}
 
 }

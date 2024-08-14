@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.marcelmariani</groupId>
-	<artifactId>springboot-jpa-pagination</artifactId>
+	<artifactId>springboot-redis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-jpa-pagination</name>
-	<description>Demo project for Spring Boot JPA Pagination</description>
+	<name>springboot-redis</name>
+	<description>Demo project for Spring Boot with Redis</description>
 	<url />
 	<licenses>
 		<license />
@@ -64,6 +64,10 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
 	</dependencies>
 	<build>

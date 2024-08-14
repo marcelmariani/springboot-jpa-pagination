@@ -27,13 +27,14 @@ public class CustomerServiceImpl implements CustomerService {
 
 	public Page<Customer> listCustomer(CustomerFilter customerFilter, Pageable pageable) {
 		Customer customer = Customer.builder()
-				.id(customerFilter.getId())
+				.documentId(customerFilter.getDocumentId())
 				.name(customerFilter.getName())
 				.email(customerFilter.getEmail())
-				.documentId(customerFilter.getDocumentId())
 				.build();
 
-		ExampleMatcher exampleMatcher = ExampleMatcher.matching().withIgnoreNullValues().withIgnoreCase()
+		ExampleMatcher exampleMatcher = ExampleMatcher.matching()
+				.withIgnoreNullValues()
+				.withIgnoreCase()
 				.withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
 
 		Example example = Example.of(customer, exampleMatcher);
@@ -41,11 +42,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerRepository.findAll(example, pageable);
 	}
 
-	public Optional<Customer> findById(Long id) {
-		return customerRepository.findById(id);
+	public Optional<Customer> findById(String id) {
+		return this.customerRepository.findById(id);
 	}
 
-	public void removerPorId(Long id) {
-		customerRepository.deleteById(id);
-	}
 }

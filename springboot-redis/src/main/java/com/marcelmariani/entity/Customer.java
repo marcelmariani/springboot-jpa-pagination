@@ -20,18 +20,21 @@ import lombok.Setter;
 @Builder
 @Entity
 public class Customer {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
 
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	private String id;
+	@Id
+	@Column(name = "documentId")
+	@JsonProperty("document_id")
+	private String documentId;
+	
 	@Column(name = "name", nullable = false)
 	private String name;
 
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "documentId")
-	@JsonProperty("document_id")
-	private String documentId;
+
 
 }

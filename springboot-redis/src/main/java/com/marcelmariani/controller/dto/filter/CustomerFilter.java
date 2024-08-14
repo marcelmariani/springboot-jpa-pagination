@@ -11,9 +11,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CustomerFilter {
 
-	private Long id;
+	private String documentId;
+//	private String id;
 	private String name;
 	private String email;
-	private String documentId;
 
 }

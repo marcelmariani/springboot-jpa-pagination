@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 public class CustomerApplication {
 
 	@Bean
-	public ModelMapper modelMapper(){
+	public ModelMapper modelMapper() {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setSkipNullEnabled(true);
 		return modelMapper;
